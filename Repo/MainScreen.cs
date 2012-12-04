@@ -11,6 +11,7 @@ namespace Repo
 {
     public partial class MainScreen : Form
     {
+        List<Krest> shape = new List<Krest>();
         public MainScreen()
         {
             InitializeComponent();
@@ -34,6 +35,16 @@ namespace Repo
                 g.DrawLine(p, this.x - 5, this.y, this.x + 5, this.y);
                 g.DrawLine(p, this.x, this.y-5, this.x, this.y+5);
             }
+        }
+
+        private void MainScreen_MouseDown(object sender, MouseEventArgs e)
+        {
+            shape.Add(new Krest(e.X, e.Y));
+        }
+
+        private void MainScreen_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }

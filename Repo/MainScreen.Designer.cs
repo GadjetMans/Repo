@@ -37,6 +37,8 @@
             this.ClientSize = new System.Drawing.Size(292, 273);
             this.Name = "MainScreen";
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainScreen_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainScreen_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainScreen_MouseMove);
             this.ResumeLayout(false);
 
