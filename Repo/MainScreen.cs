@@ -15,6 +15,9 @@ namespace Repo
         List<Shape> shapes = new List<Shape>();
         bool IsShapeStart = true;
         Point Shapestart;
+        Pen pMain = new Pen(Color.Black);
+        Pen pTemp = new Pen(Color.Black);
+        Shape tempshape;
         string file = " ";
         public MainScreen()
         {
@@ -23,13 +26,28 @@ namespace Repo
 
         private void MainScreen_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = Convert.ToString(e.X) +";"+ Convert.ToString(e.Y);
-        }     
-        private void MainScreen_MouseDown(object sender, MouseEventArgs e)
-        {
             if (rb1.Checked)
             {
-                shapes.Add(new Krest(e.X, e.Y));
+                tempshape = (new Krest(e.X, e.Y));
+            }
+            if (rb2.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    tempshape = new Line(Shapestart, e.Location);
+                }
+            }
+        }
+        private void AddShape(Shape shape)
+        {
+            shapes.Add(shape);
+        }
+        private void MainScreen_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Text = Convert.ToString(e.X) + ";" + Convert.ToString(e.Y);
+            if (rb1.Checked)
+            {
+                AddShape(tempshape);
             }
             if (rb2.Checked)
             {
@@ -37,7 +55,7 @@ namespace Repo
                 {
                     Shapestart = e.Location;
                 }
-                else shapes.Add(new Line(Shapestart,e.Location));
+                else AddShape(tempshape);
                 IsShapeStart = !IsShapeStart;
             }
             this.Refresh();
@@ -45,8 +63,9 @@ namespace Repo
 
         private void MainScreen_Paint(object sender, PaintEventArgs e)
         {
+            if (tempshape != null) tempshape.DrawWith(e.Graphics, pTemp);
             foreach (Shape cr in this.shapes)
-                cr.DrawWith(e.Graphics);
+                cr.DrawWith(e.Graphics,pMain);
         }
 
         private void rb_change(object sender, EventArgs e)
