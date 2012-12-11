@@ -40,11 +40,13 @@ namespace Repo
         private void MainScreen_MouseDown(object sender, MouseEventArgs e)
         {
             shape.Add(new Krest(e.X, e.Y));
+            this.Refresh();
         }
 
         private void MainScreen_Paint(object sender, PaintEventArgs e)
         {
-            
+            foreach (Krest cr in this.shape)
+                cr.DrawWith(e.Graphics);
         }
     }
 }
