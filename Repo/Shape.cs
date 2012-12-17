@@ -71,4 +71,70 @@ namespace Repo
             sw.WriteLine(Convert.ToString(f.X) + " " + Convert.ToString(f.Y));
         }
     }
+    public class Circle : Shape
+    {
+        Point c, a;
+        public Circle(Point _c, Point _a)
+        {
+            this.c = _c;
+            this.a = _a;
+        }
+        public Circle(StreamReader sr)
+        {
+            string line = sr.ReadLine();
+            string line1 = sr.ReadLine();
+            string[] foo = line.Split(' ');
+            string[] foo1 = line1.Split(' ');
+            c.X = Convert.ToInt32(foo[0]);
+            c.Y = Convert.ToInt32(foo[1]);
+            a.X = Convert.ToInt32(foo1[0]);
+            a.Y = Convert.ToInt32(foo1[1]);
+        }
+        public override void DrawWith(Graphics g, Pen p)
+        {
+            float r = (float)Math.Sqrt(Math.Pow((a.X - c.X), 2) + Math.Pow((a.Y - c.Y), 2));
+            g.DrawEllipse(p, c.X - r, c.Y - r, 2 * r, 2 * r);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Circle");
+            sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
+            sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+        }
+    }
+    public class Ellipse : Shape
+    {
+        Point c, a;
+        public Ellipse(Point _c, Point _a)
+        {
+            this.c = _c;
+            this.a = _a;
+        }
+        public Ellipse(StreamReader sr)
+        {
+            string line = sr.ReadLine();
+            string line1 = sr.ReadLine();
+            string[] foo = line.Split(' ');
+            string[] foo1 = line1.Split(' ');
+            c.X = Convert.ToInt32(foo[0]);
+            c.Y = Convert.ToInt32(foo[1]);
+            a.X = Convert.ToInt32(foo1[0]);
+            a.Y = Convert.ToInt32(foo1[1]);
+        }
+        public override void DrawWith(Graphics g, Pen p)
+        {
+            float w = (float)(a.X - c.X);
+            float h = (float)(a.Y - c.Y);
+            if (w >= 0 && h >= 0) g.DrawEllipse(p, c.X, c.Y, w, h);
+            if (w < 0 && h < 0) g.DrawEllipse(p, a.X, a.Y, -w, -h);
+            if (w >= 0 && h < 0) g.DrawEllipse(p, c.X, a.Y, w, -h);
+            if (w < 0 && h >= 0) g.DrawEllipse(p, a.X, c.Y, -w, h);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Ellipse");
+            sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
+            sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+        }
+    }
 }
