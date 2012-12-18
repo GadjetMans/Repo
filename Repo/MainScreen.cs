@@ -207,5 +207,14 @@ namespace Repo
         {
             this.Refresh();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            while (SList.SelectedIndices.Count > 0)
+            {
+                shapes.RemoveAt(SList.SelectedIndices[0]);
+                SList.Items.RemoveAt(SList.SelectedIndices[0]);
+            }
+        }
     }
 }
