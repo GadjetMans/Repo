@@ -45,13 +45,14 @@
             this.rb3 = new System.Windows.Forms.RadioButton();
             this.rb4 = new System.Windows.Forms.RadioButton();
             this.rb5 = new System.Windows.Forms.RadioButton();
+            this.SList = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rb1
             // 
             this.rb1.AutoSize = true;
-            this.rb1.Location = new System.Drawing.Point(200, 161);
+            this.rb1.Location = new System.Drawing.Point(333, 216);
             this.rb1.Name = "rb1";
             this.rb1.Size = new System.Drawing.Size(55, 17);
             this.rb1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // rb2
             // 
             this.rb2.AutoSize = true;
-            this.rb2.Location = new System.Drawing.Point(200, 184);
+            this.rb2.Location = new System.Drawing.Point(333, 239);
             this.rb2.Name = "rb2";
             this.rb2.Size = new System.Drawing.Size(57, 17);
             this.rb2.TabIndex = 1;
@@ -78,7 +79,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(292, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(444, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,7 +158,7 @@
             // rb3
             // 
             this.rb3.AutoSize = true;
-            this.rb3.Location = new System.Drawing.Point(200, 207);
+            this.rb3.Location = new System.Drawing.Point(333, 262);
             this.rb3.Name = "rb3";
             this.rb3.Size = new System.Drawing.Size(48, 17);
             this.rb3.TabIndex = 3;
@@ -168,7 +169,7 @@
             // rb4
             // 
             this.rb4.AutoSize = true;
-            this.rb4.Location = new System.Drawing.Point(200, 230);
+            this.rb4.Location = new System.Drawing.Point(333, 285);
             this.rb4.Name = "rb4";
             this.rb4.Size = new System.Drawing.Size(51, 17);
             this.rb4.TabIndex = 4;
@@ -179,7 +180,7 @@
             // rb5
             // 
             this.rb5.AutoSize = true;
-            this.rb5.Location = new System.Drawing.Point(200, 253);
+            this.rb5.Location = new System.Drawing.Point(333, 308);
             this.rb5.Name = "rb5";
             this.rb5.Size = new System.Drawing.Size(99, 17);
             this.rb5.TabIndex = 5;
@@ -187,11 +188,21 @@
             this.rb5.Text = "Прямоуголник";
             this.rb5.UseVisualStyleBackColor = true;
             // 
+            // SList
+            // 
+            this.SList.FormattingEnabled = true;
+            this.SList.Location = new System.Drawing.Point(303, 20);
+            this.SList.Name = "SList";
+            this.SList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.SList.Size = new System.Drawing.Size(142, 186);
+            this.SList.TabIndex = 6;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 273);
+            this.ClientSize = new System.Drawing.Size(444, 337);
+            this.Controls.Add(this.SList);
             this.Controls.Add(this.rb5);
             this.Controls.Add(this.rb4);
             this.Controls.Add(this.rb3);
@@ -230,6 +241,7 @@
         private System.Windows.Forms.RadioButton rb3;
         private System.Windows.Forms.RadioButton rb4;
         private System.Windows.Forms.RadioButton rb5;
+        private System.Windows.Forms.ListBox SList;
     }
 }
 

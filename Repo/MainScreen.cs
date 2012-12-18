@@ -63,6 +63,7 @@ namespace Repo
         private void AddShape(Shape shape)
         {
             shapes.Add(shape);
+            SList.Items.Add(shape.Coord_Str);
         }
         private void MainScreen_MouseDown(object sender, MouseEventArgs e)
         {

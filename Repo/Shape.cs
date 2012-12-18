@@ -14,6 +14,7 @@ namespace Repo
     {
         public abstract void DrawWith(Graphics g, Pen p);
         public abstract void SaveTo(StreamWriter sw);
+        public abstract string Coord_Str { get; }
     }
     public class Krest : Shape
     {
@@ -39,6 +40,10 @@ namespace Repo
         {
             sw.WriteLine("Krest");
             sw.WriteLine(Convert.ToString(this.x) + " " + Convert.ToString(this.y));
+        }
+        public override string Coord_Str
+        {
+            get { return ("Krest(" + Convert.ToString(x) + ";" + Convert.ToString(y) + ")"); }
         }
     }
     public class Line : Shape
@@ -70,10 +75,15 @@ namespace Repo
             sw.WriteLine(Convert.ToString(s.X) + " " + Convert.ToString(s.Y));
             sw.WriteLine(Convert.ToString(f.X) + " " + Convert.ToString(f.Y));
         }
+        public override string Coord_Str
+        {
+            get { return ("Line(" + Convert.ToString(s.X) + ";" + Convert.ToString(s.Y) + ")-("+Convert.ToString(f.X)+";"+Convert.ToString(f.Y)+")"); }
+        }
     }
     public class Circle : Shape
     {
         Point c, a;
+        float r;
         public Circle(Point _c, Point _a)
         {
             this.c = _c;
@@ -92,7 +102,7 @@ namespace Repo
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            float r = (float)Math.Sqrt(Math.Pow((a.X - c.X), 2) + Math.Pow((a.Y - c.Y), 2));
+            r = (float)Math.Sqrt(Math.Pow((a.X - c.X), 2) + Math.Pow((a.Y - c.Y), 2));
             g.DrawEllipse(p, c.X - r, c.Y - r, 2 * r, 2 * r);
         }
         public override void SaveTo(StreamWriter sw)
@@ -101,10 +111,15 @@ namespace Repo
             sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
         }
+        public override string Coord_Str
+        {
+            get { return ("Circle(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";r=" + Convert.ToString(r) + ")"); }
+        }
     }
     public class Ellipse : Shape
     {
         Point c, a;
+        float w, h;
         public Ellipse(Point _c, Point _a)
         {
             this.c = _c;
@@ -123,8 +138,8 @@ namespace Repo
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            float w = (float)(a.X - c.X);
-            float h = (float)(a.Y - c.Y);
+            w = (float)(a.X - c.X);
+            h = (float)(a.Y - c.Y);
             if (w >= 0 && h >= 0) g.DrawEllipse(p, c.X, c.Y, w, h);
             if (w < 0 && h < 0) g.DrawEllipse(p, a.X, a.Y, -w, -h);
             if (w >= 0 && h < 0) g.DrawEllipse(p, c.X, a.Y, w, -h);
@@ -136,10 +151,15 @@ namespace Repo
             sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
         }
+        public override string Coord_Str
+        {
+            get { return ("Ellipse(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";w=" + Convert.ToString(Math.Abs(w)) + ";h=" + Convert.ToString(Math.Abs(h)) + ")"); }
+        }
     }
     public class Rectangle : Shape
     {
         Point c, a;
+        float w, h;
         public Rectangle(Point _c, Point _a)
         {
             this.c = _c;
@@ -158,8 +178,8 @@ namespace Repo
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            float w = (float)(a.X - c.X);
-            float h = (float)(a.Y - c.Y);
+            w = (float)(a.X - c.X);
+            h = (float)(a.Y - c.Y);
             if (w >= 0 && h >= 0) g.DrawRectangle(p, c.X, c.Y, w, h);
             if (w < 0 && h < 0) g.DrawRectangle(p, a.X, a.Y, -w, -h);
             if (w >= 0 && h < 0) g.DrawRectangle(p, c.X, a.Y, w, -h);
@@ -170,6 +190,10 @@ namespace Repo
             sw.WriteLine("Rectangle");
             sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+        }
+        public override string Coord_Str
+        {
+            get { return ("Rectangle(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";w=" + Convert.ToString(Math.Abs(w)) + ";h=" + Convert.ToString(Math.Abs(h)) + ")"); }
         }
     }
 }
