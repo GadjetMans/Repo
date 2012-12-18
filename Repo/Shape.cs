@@ -137,4 +137,39 @@ namespace Repo
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
         }
     }
+    public class Rectangle : Shape
+    {
+        Point c, a;
+        public Rectangle(Point _c, Point _a)
+        {
+            this.c = _c;
+            this.a = _a;
+        }
+        public Rectangle(StreamReader sr)
+        {
+            string line = sr.ReadLine();
+            string line1 = sr.ReadLine();
+            string[] foo = line.Split(' ');
+            string[] foo1 = line1.Split(' ');
+            c.X = Convert.ToInt32(foo[0]);
+            c.Y = Convert.ToInt32(foo[1]);
+            a.X = Convert.ToInt32(foo1[0]);
+            a.Y = Convert.ToInt32(foo1[1]);
+        }
+        public override void DrawWith(Graphics g, Pen p)
+        {
+            float w = (float)(a.X - c.X);
+            float h = (float)(a.Y - c.Y);
+            if (w >= 0 && h >= 0) g.DrawRectangle(p, c.X, c.Y, w, h);
+            if (w < 0 && h < 0) g.DrawRectangle(p, a.X, a.Y, -w, -h);
+            if (w >= 0 && h < 0) g.DrawRectangle(p, c.X, a.Y, w, -h);
+            if (w < 0 && h >= 0) g.DrawRectangle(p, a.X, c.Y, -w, h);
+        }
+        public override void SaveTo(StreamWriter sw)
+        {
+            sw.WriteLine("Rectangle");
+            sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
+            sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+        }
+    }
 }

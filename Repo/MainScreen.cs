@@ -51,6 +51,13 @@ namespace Repo
                     tempshape = new Ellipse(Shapestart, e.Location);
                 }
             }
+            if (rb5.Checked)
+            {
+                if (!IsShapeStart)
+                {
+                    tempshape = new Rectangle(Shapestart, e.Location);
+                }
+            }
             this.Refresh();
         }
         private void AddShape(Shape shape)
@@ -83,6 +90,15 @@ namespace Repo
                 IsShapeStart = !IsShapeStart;
             }
             if (rb4.Checked)
+            {
+                if (IsShapeStart)
+                {
+                    Shapestart = e.Location;
+                }
+                else AddShape(tempshape);
+                IsShapeStart = !IsShapeStart;
+            }
+            if (rb5.Checked)
             {
                 if (IsShapeStart)
                 {
@@ -131,6 +147,9 @@ namespace Repo
                             break;
                         case "Ellipse":
                             shapes.Add(new Ellipse(sr));
+                            break;
+                        case "Rectangle":
+                            shapes.Add(new Rectangle(sr));
                             break;
                     }
                 }

@@ -44,13 +44,14 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.rb3 = new System.Windows.Forms.RadioButton();
             this.rb4 = new System.Windows.Forms.RadioButton();
+            this.rb5 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rb1
             // 
             this.rb1.AutoSize = true;
-            this.rb1.Location = new System.Drawing.Point(223, 189);
+            this.rb1.Location = new System.Drawing.Point(200, 161);
             this.rb1.Name = "rb1";
             this.rb1.Size = new System.Drawing.Size(55, 17);
             this.rb1.TabIndex = 0;
@@ -62,7 +63,7 @@
             // rb2
             // 
             this.rb2.AutoSize = true;
-            this.rb2.Location = new System.Drawing.Point(223, 212);
+            this.rb2.Location = new System.Drawing.Point(200, 184);
             this.rb2.Name = "rb2";
             this.rb2.Size = new System.Drawing.Size(57, 17);
             this.rb2.TabIndex = 1;
@@ -156,7 +157,7 @@
             // rb3
             // 
             this.rb3.AutoSize = true;
-            this.rb3.Location = new System.Drawing.Point(223, 235);
+            this.rb3.Location = new System.Drawing.Point(200, 207);
             this.rb3.Name = "rb3";
             this.rb3.Size = new System.Drawing.Size(48, 17);
             this.rb3.TabIndex = 3;
@@ -167,7 +168,7 @@
             // rb4
             // 
             this.rb4.AutoSize = true;
-            this.rb4.Location = new System.Drawing.Point(223, 258);
+            this.rb4.Location = new System.Drawing.Point(200, 230);
             this.rb4.Name = "rb4";
             this.rb4.Size = new System.Drawing.Size(51, 17);
             this.rb4.TabIndex = 4;
@@ -175,11 +176,23 @@
             this.rb4.Text = "Овал";
             this.rb4.UseVisualStyleBackColor = true;
             // 
+            // rb5
+            // 
+            this.rb5.AutoSize = true;
+            this.rb5.Location = new System.Drawing.Point(200, 253);
+            this.rb5.Name = "rb5";
+            this.rb5.Size = new System.Drawing.Size(99, 17);
+            this.rb5.TabIndex = 5;
+            this.rb5.TabStop = true;
+            this.rb5.Text = "Прямоуголник";
+            this.rb5.UseVisualStyleBackColor = true;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.rb5);
             this.Controls.Add(this.rb4);
             this.Controls.Add(this.rb3);
             this.Controls.Add(this.rb2);
@@ -216,6 +229,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.RadioButton rb3;
         private System.Windows.Forms.RadioButton rb4;
+        private System.Windows.Forms.RadioButton rb5;
     }
 }
 
