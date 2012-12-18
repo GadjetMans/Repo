@@ -196,6 +196,7 @@
             this.SList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.SList.Size = new System.Drawing.Size(142, 186);
             this.SList.TabIndex = 6;
+            this.SList.SelectedIndexChanged += new System.EventHandler(this.SList_SelectedIndexChanged);
             // 
             // MainScreen
             // 

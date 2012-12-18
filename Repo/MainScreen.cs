@@ -17,6 +17,7 @@ namespace Repo
         Point Shapestart;
         Pen pMain = new Pen(Color.Black);
         Pen pTemp = new Pen(Color.Red);
+        Pen pSel = new Pen(Color.Green, 2);
         Shape tempshape;
         string file = " ";
         public MainScreen()
@@ -119,6 +120,8 @@ namespace Repo
             }
             foreach (Shape cr in this.shapes)
                 cr.DrawWith(e.Graphics,pMain);
+            foreach (int i in SList.SelectedIndices)
+                shapes[i].DrawWith(e.Graphics, pSel);
         }
 
         private void rb_change(object sender, EventArgs e)
@@ -197,6 +200,11 @@ namespace Repo
         private void MainScreen_MouseLeave(object sender, EventArgs e)
         {
             tempshape = null;
+            this.Refresh();
+        }
+
+        private void SList_SelectedIndexChanged(object sender, EventArgs e)
+        {
             this.Refresh();
         }
     }
