@@ -222,6 +222,7 @@
             this.Controls.Add(this.rb2);
             this.Controls.Add(this.rb1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainScreen";
             this.Text = "Form1";

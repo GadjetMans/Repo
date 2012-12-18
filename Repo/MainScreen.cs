@@ -141,19 +141,19 @@ namespace Repo
                     switch (type)
                     {
                         case "Krest":
-                            shapes.Add(new Krest(sr));
+                            AddShape(new Krest(sr));
                             break;
                         case "Line":
-                            shapes.Add(new Line(sr));
+                            AddShape(new Line(sr));
                             break;
                         case "Circle":
-                            shapes.Add(new Circle(sr));
+                            AddShape(new Circle(sr));
                             break;
                         case "Ellipse":
-                            shapes.Add(new Ellipse(sr));
+                            AddShape(new Ellipse(sr));
                             break;
                         case "Rectangle":
-                            shapes.Add(new Rectangle(sr));
+                            AddShape(new Rectangle(sr));
                             break;
                     }
                 }
@@ -184,17 +184,34 @@ namespace Repo
         {
             file = null;
             shapes.Clear();
+            SList.Items.Clear();
             this.Refresh();
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamWriter sw = new StreamWriter(file);
-            foreach (Shape p in this.shapes)
+            if (file!=" ")
             {
-                p.SaveTo(sw);
+                StreamWriter sw = new StreamWriter(file);
+                foreach (Shape p in this.shapes)
+                {
+                    p.SaveTo(sw);
+                }
+                sw.Close();
             }
-            sw.Close();
+            else
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    file = saveFileDialog1.FileName;
+                    StreamWriter sw = new StreamWriter(file);
+                    foreach (Shape p in this.shapes)
+                    {
+                        p.SaveTo(sw);
+                    }
+                    sw.Close();
+                }
+            }
         }
 
         private void MainScreen_MouseLeave(object sender, EventArgs e)
