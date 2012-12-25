@@ -118,12 +118,11 @@ namespace Repo
     }
     public class Ellipse : Shape
     {
-        Point c, a;
-        float w, h;
-        public Ellipse(Point _c, Point _a)
+        Point b, a;
+        public Ellipse(Point _a, Point _b)
         {
-            this.c = _c;
-            this.a = _a;
+            this.a = new Point(Math.Min(_a.X, _b.X), Math.Min(_a.Y, _b.Y));
+            this.b = new Point(Math.Max(_a.X, _b.X), Math.Max(_a.Y, _b.Y));
         }
         public Ellipse(StreamReader sr)
         {
@@ -131,39 +130,47 @@ namespace Repo
             string line1 = sr.ReadLine();
             string[] foo = line.Split(' ');
             string[] foo1 = line1.Split(' ');
-            c.X = Convert.ToInt32(foo[0]);
-            c.Y = Convert.ToInt32(foo[1]);
-            a.X = Convert.ToInt32(foo1[0]);
-            a.Y = Convert.ToInt32(foo1[1]);
+            a.X = Convert.ToInt32(foo[0]);
+            a.Y = Convert.ToInt32(foo[1]);
+            b.X = Convert.ToInt32(foo1[0]);
+            b.Y = Convert.ToInt32(foo1[1]);
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            w = (float)(a.X - c.X);
-            h = (float)(a.Y - c.Y);
-            if (w >= 0 && h >= 0) g.DrawEllipse(p, c.X, c.Y, w, h);
-            if (w < 0 && h < 0) g.DrawEllipse(p, a.X, a.Y, -w, -h);
-            if (w >= 0 && h < 0) g.DrawEllipse(p, c.X, a.Y, w, -h);
-            if (w < 0 && h >= 0) g.DrawEllipse(p, a.X, c.Y, -w, h);
+            g.DrawEllipse(p, a.X, a.Y, width, height);
         }
         public override void SaveTo(StreamWriter sw)
         {
             sw.WriteLine("Ellipse");
-            sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+            sw.WriteLine(Convert.ToString(b.X) + " " + Convert.ToString(b.Y));
         }
         public override string Coord_Str
         {
-            get { return ("Ellipse(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";w=" + Convert.ToString(Math.Abs(w)) + ";h=" + Convert.ToString(Math.Abs(h)) + ")"); }
+            get { return ("Ellipse(" + Convert.ToString(a.X) + ";" + Convert.ToString(a.Y) + ";w=" + Convert.ToString(Math.Abs(width)) + ";h=" + Convert.ToString(Math.Abs(height)) + ")"); }
+        }
+        public float width
+        {
+            get
+            {
+                return (b.X - a.X);
+            }
+        }
+        public float height
+        {
+            get
+            {
+                return (b.Y - a.Y);
+            }
         }
     }
     public class Rectangle : Shape
     {
-        Point c, a;
-        float w, h;
-        public Rectangle(Point _c, Point _a)
+        Point a, b;
+        public Rectangle(Point _a, Point _b)
         {
-            this.c = _c;
-            this.a = _a;
+            this.a = new Point(Math.Min(_a.X, _b.X), Math.Min(_a.Y, _b.Y));
+            this.b = new Point(Math.Max(_a.X, _b.X), Math.Max(_a.Y, _b.Y));
         }
         public Rectangle(StreamReader sr)
         {
@@ -171,29 +178,38 @@ namespace Repo
             string line1 = sr.ReadLine();
             string[] foo = line.Split(' ');
             string[] foo1 = line1.Split(' ');
-            c.X = Convert.ToInt32(foo[0]);
-            c.Y = Convert.ToInt32(foo[1]);
-            a.X = Convert.ToInt32(foo1[0]);
-            a.Y = Convert.ToInt32(foo1[1]);
+            a.X = Convert.ToInt32(foo[0]);
+            a.Y = Convert.ToInt32(foo[1]);
+            b.X = Convert.ToInt32(foo1[0]);
+            b.Y = Convert.ToInt32(foo1[1]);
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            w = (float)(a.X - c.X);
-            h = (float)(a.Y - c.Y);
-            if (w >= 0 && h >= 0) g.DrawRectangle(p, c.X, c.Y, w, h);
-            if (w < 0 && h < 0) g.DrawRectangle(p, a.X, a.Y, -w, -h);
-            if (w >= 0 && h < 0) g.DrawRectangle(p, c.X, a.Y, w, -h);
-            if (w < 0 && h >= 0) g.DrawRectangle(p, a.X, c.Y, -w, h);
+            g.DrawRectangle(p, a.X, a.Y, width, height);
         }
         public override void SaveTo(StreamWriter sw)
         {
             sw.WriteLine("Rectangle");
-            sw.WriteLine(Convert.ToString(c.X) + " " + Convert.ToString(c.Y));
             sw.WriteLine(Convert.ToString(a.X) + " " + Convert.ToString(a.Y));
+            sw.WriteLine(Convert.ToString(b.X) + " " + Convert.ToString(b.Y));
         }
         public override string Coord_Str
         {
-            get { return ("Rectangle(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";w=" + Convert.ToString(Math.Abs(w)) + ";h=" + Convert.ToString(Math.Abs(h)) + ")"); }
+            get { return ("Rectangle(" + Convert.ToString(a.X) + ";" + Convert.ToString(a.Y) + ";w=" + Convert.ToString(Math.Abs(width)) + ";h=" + Convert.ToString(Math.Abs(height)) + ")"); }
+        }
+        public float width
+        {
+            get
+            {
+                return (b.X - a.X);
+            }
+        }
+        public float height
+        {
+            get
+            {
+                return (b.Y - a.Y);
+            }
         }
     }
 }

@@ -27,32 +27,32 @@ namespace Repo
 
         private void MainScreen_MouseMove(object sender, MouseEventArgs e)
         {
-            if (rb1.Checked)
+            if (rbCross.Checked)
             {
                 tempshape = (new Krest(e.X, e.Y));
             }
-            if (rb2.Checked)
+            if (rbLine.Checked)
             {
                 if (!IsShapeStart)
                 {
                     tempshape = new Line(Shapestart, e.Location);
                 }
             }
-            if (rb3.Checked)
+            if (rbCircle.Checked)
             {
                 if (!IsShapeStart)
                 {
                     tempshape = new Circle(Shapestart, e.Location);
                 }
             }
-            if (rb4.Checked)
+            if (rbEllipse.Checked)
             {
                 if (!IsShapeStart)
                 {
                     tempshape = new Ellipse(Shapestart, e.Location);
                 }
             }
-            if (rb5.Checked)
+            if (rbRectangle.Checked)
             {
                 if (!IsShapeStart)
                 {
@@ -69,11 +69,11 @@ namespace Repo
         private void MainScreen_MouseDown(object sender, MouseEventArgs e)
         {
             this.Text = Convert.ToString(e.X) + ";" + Convert.ToString(e.Y);
-            if (rb1.Checked)
+            if (rbCross.Checked)
             {
                 AddShape(tempshape);
             }
-            if (rb2.Checked)
+            else
             {
                 if (IsShapeStart)
                 {
@@ -81,34 +81,7 @@ namespace Repo
                 }
                 else AddShape(tempshape);
                 IsShapeStart = !IsShapeStart;
-            }
-            if (rb3.Checked)
-            {
-                if (IsShapeStart)
-                {
-                    Shapestart = e.Location;
-                }
-                else AddShape(tempshape);
-                IsShapeStart = !IsShapeStart;
-            }
-            if (rb4.Checked)
-            {
-                if (IsShapeStart)
-                {
-                    Shapestart = e.Location;
-                }
-                else AddShape(tempshape);
-                IsShapeStart = !IsShapeStart;
-            }
-            if (rb5.Checked)
-            {
-                if (IsShapeStart)
-                {
-                    Shapestart = e.Location;
-                }
-                else AddShape(tempshape);
-                IsShapeStart = !IsShapeStart;
-            }
+            }            
             this.Refresh();
         }
 

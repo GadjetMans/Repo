@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
-            this.rb1 = new System.Windows.Forms.RadioButton();
-            this.rb2 = new System.Windows.Forms.RadioButton();
+            this.rbCross = new System.Windows.Forms.RadioButton();
+            this.rbLine = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,37 +42,37 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.rb3 = new System.Windows.Forms.RadioButton();
-            this.rb4 = new System.Windows.Forms.RadioButton();
-            this.rb5 = new System.Windows.Forms.RadioButton();
+            this.rbCircle = new System.Windows.Forms.RadioButton();
+            this.rbEllipse = new System.Windows.Forms.RadioButton();
+            this.rbRectangle = new System.Windows.Forms.RadioButton();
             this.SList = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rb1
+            // rbCross
             // 
-            this.rb1.AutoSize = true;
-            this.rb1.Location = new System.Drawing.Point(333, 216);
-            this.rb1.Name = "rb1";
-            this.rb1.Size = new System.Drawing.Size(55, 17);
-            this.rb1.TabIndex = 0;
-            this.rb1.TabStop = true;
-            this.rb1.Text = "Крест";
-            this.rb1.UseVisualStyleBackColor = true;
-            this.rb1.CheckedChanged += new System.EventHandler(this.rb_change);
+            this.rbCross.AutoSize = true;
+            this.rbCross.Location = new System.Drawing.Point(333, 216);
+            this.rbCross.Name = "rbCross";
+            this.rbCross.Size = new System.Drawing.Size(55, 17);
+            this.rbCross.TabIndex = 0;
+            this.rbCross.TabStop = true;
+            this.rbCross.Text = "Крест";
+            this.rbCross.UseVisualStyleBackColor = true;
+            this.rbCross.CheckedChanged += new System.EventHandler(this.rb_change);
             // 
-            // rb2
+            // rbLine
             // 
-            this.rb2.AutoSize = true;
-            this.rb2.Location = new System.Drawing.Point(333, 239);
-            this.rb2.Name = "rb2";
-            this.rb2.Size = new System.Drawing.Size(57, 17);
-            this.rb2.TabIndex = 1;
-            this.rb2.TabStop = true;
-            this.rb2.Text = "Линия";
-            this.rb2.UseVisualStyleBackColor = true;
-            this.rb2.CheckedChanged += new System.EventHandler(this.rb_change);
+            this.rbLine.AutoSize = true;
+            this.rbLine.Location = new System.Drawing.Point(333, 239);
+            this.rbLine.Name = "rbLine";
+            this.rbLine.Size = new System.Drawing.Size(57, 17);
+            this.rbLine.TabIndex = 1;
+            this.rbLine.TabStop = true;
+            this.rbLine.Text = "Линия";
+            this.rbLine.UseVisualStyleBackColor = true;
+            this.rbLine.CheckedChanged += new System.EventHandler(this.rb_change);
             // 
             // menuStrip1
             // 
@@ -156,38 +156,38 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // rb3
+            // rbCircle
             // 
-            this.rb3.AutoSize = true;
-            this.rb3.Location = new System.Drawing.Point(333, 262);
-            this.rb3.Name = "rb3";
-            this.rb3.Size = new System.Drawing.Size(48, 17);
-            this.rb3.TabIndex = 3;
-            this.rb3.TabStop = true;
-            this.rb3.Text = "Круг";
-            this.rb3.UseVisualStyleBackColor = true;
+            this.rbCircle.AutoSize = true;
+            this.rbCircle.Location = new System.Drawing.Point(333, 262);
+            this.rbCircle.Name = "rbCircle";
+            this.rbCircle.Size = new System.Drawing.Size(48, 17);
+            this.rbCircle.TabIndex = 3;
+            this.rbCircle.TabStop = true;
+            this.rbCircle.Text = "Круг";
+            this.rbCircle.UseVisualStyleBackColor = true;
             // 
-            // rb4
+            // rbEllipse
             // 
-            this.rb4.AutoSize = true;
-            this.rb4.Location = new System.Drawing.Point(333, 285);
-            this.rb4.Name = "rb4";
-            this.rb4.Size = new System.Drawing.Size(51, 17);
-            this.rb4.TabIndex = 4;
-            this.rb4.TabStop = true;
-            this.rb4.Text = "Овал";
-            this.rb4.UseVisualStyleBackColor = true;
+            this.rbEllipse.AutoSize = true;
+            this.rbEllipse.Location = new System.Drawing.Point(333, 285);
+            this.rbEllipse.Name = "rbEllipse";
+            this.rbEllipse.Size = new System.Drawing.Size(51, 17);
+            this.rbEllipse.TabIndex = 4;
+            this.rbEllipse.TabStop = true;
+            this.rbEllipse.Text = "Овал";
+            this.rbEllipse.UseVisualStyleBackColor = true;
             // 
-            // rb5
+            // rbRectangle
             // 
-            this.rb5.AutoSize = true;
-            this.rb5.Location = new System.Drawing.Point(333, 308);
-            this.rb5.Name = "rb5";
-            this.rb5.Size = new System.Drawing.Size(99, 17);
-            this.rb5.TabIndex = 5;
-            this.rb5.TabStop = true;
-            this.rb5.Text = "Прямоуголник";
-            this.rb5.UseVisualStyleBackColor = true;
+            this.rbRectangle.AutoSize = true;
+            this.rbRectangle.Location = new System.Drawing.Point(333, 308);
+            this.rbRectangle.Name = "rbRectangle";
+            this.rbRectangle.Size = new System.Drawing.Size(99, 17);
+            this.rbRectangle.TabIndex = 5;
+            this.rbRectangle.TabStop = true;
+            this.rbRectangle.Text = "Прямоуголник";
+            this.rbRectangle.UseVisualStyleBackColor = true;
             // 
             // SList
             // 
@@ -216,11 +216,11 @@
             this.ClientSize = new System.Drawing.Size(444, 337);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SList);
-            this.Controls.Add(this.rb5);
-            this.Controls.Add(this.rb4);
-            this.Controls.Add(this.rb3);
-            this.Controls.Add(this.rb2);
-            this.Controls.Add(this.rb1);
+            this.Controls.Add(this.rbRectangle);
+            this.Controls.Add(this.rbEllipse);
+            this.Controls.Add(this.rbCircle);
+            this.Controls.Add(this.rbLine);
+            this.Controls.Add(this.rbCross);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -239,8 +239,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rb1;
-        private System.Windows.Forms.RadioButton rb2;
+        private System.Windows.Forms.RadioButton rbCross;
+        private System.Windows.Forms.RadioButton rbLine;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
@@ -252,9 +252,9 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.RadioButton rb3;
-        private System.Windows.Forms.RadioButton rb4;
-        private System.Windows.Forms.RadioButton rb5;
+        private System.Windows.Forms.RadioButton rbCircle;
+        private System.Windows.Forms.RadioButton rbEllipse;
+        private System.Windows.Forms.RadioButton rbRectangle;
         private System.Windows.Forms.ListBox SList;
         private System.Windows.Forms.Button button1;
     }
