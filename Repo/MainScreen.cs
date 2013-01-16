@@ -31,34 +31,14 @@ namespace Repo
             {
                 tempshape = (new Krest(e.X, e.Y));
             }
-            if (rbLine.Checked)
+            if (!IsShapeStart)
             {
-                if (!IsShapeStart)
-                {
-                    tempshape = new Line(Shapestart, e.Location);
-                }
+                if (rbLine.Checked) tempshape = new Line(Shapestart, e.Location);
+                if (rbCircle.Checked) tempshape = new Circle(Shapestart, e.Location);
+                if (rbEllipse.Checked) tempshape = new Ellipse(Shapestart, e.Location);
+                if (rbRectangle.Checked) tempshape = new Rectangle(Shapestart, e.Location);
             }
-            if (rbCircle.Checked)
-            {
-                if (!IsShapeStart)
-                {
-                    tempshape = new Circle(Shapestart, e.Location);
-                }
-            }
-            if (rbEllipse.Checked)
-            {
-                if (!IsShapeStart)
-                {
-                    tempshape = new Ellipse(Shapestart, e.Location);
-                }
-            }
-            if (rbRectangle.Checked)
-            {
-                if (!IsShapeStart)
-                {
-                    tempshape = new Rectangle(Shapestart, e.Location);
-                }
-            }
+
             this.Refresh();
         }
         private void AddShape(Shape shape)
@@ -138,7 +118,7 @@ namespace Repo
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                file = saveFileDialog1.FileName; ;
+                file = saveFileDialog1.FileName;
                 StreamWriter sw = new StreamWriter(file);
                 foreach (Shape p in this.shapes)
                 {
@@ -155,7 +135,7 @@ namespace Repo
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            file = null;
+            file = " ";
             shapes.Clear();
             SList.Items.Clear();
             this.Refresh();

@@ -83,7 +83,6 @@ namespace Repo
     public class Circle : Shape
     {
         Point c, a;
-        float r;
         public Circle(Point _c, Point _a)
         {
             this.c = _c;
@@ -102,7 +101,6 @@ namespace Repo
         }
         public override void DrawWith(Graphics g, Pen p)
         {
-            r = (float)Math.Sqrt(Math.Pow((a.X - c.X), 2) + Math.Pow((a.Y - c.Y), 2));
             g.DrawEllipse(p, c.X - r, c.Y - r, 2 * r, 2 * r);
         }
         public override void SaveTo(StreamWriter sw)
@@ -114,6 +112,10 @@ namespace Repo
         public override string Coord_Str
         {
             get { return ("Circle(" + Convert.ToString(c.X) + ";" + Convert.ToString(c.Y) + ";r=" + Convert.ToString(r) + ")"); }
+        }
+        public float r
+        {
+            get { return ((float)Math.Sqrt(Math.Pow((a.X - c.X), 2) + Math.Pow((a.Y - c.Y), 2))); }
         }
     }
     public class Ellipse : Shape
