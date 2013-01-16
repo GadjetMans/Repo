@@ -19,6 +19,7 @@ namespace Repo
         Pen pTemp = new Pen(Color.Red);
         Pen pSel = new Pen(Color.Green, 2);
         Shape tempshape;
+        StreamWriter sw;
         string file = " ";
         public MainScreen()
         {
@@ -143,28 +144,17 @@ namespace Repo
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (file!=" ")
+            if (file != " ") sw = new StreamWriter(file);
+            else if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter sw = new StreamWriter(file);
-                foreach (Shape p in this.shapes)
-                {
-                    p.SaveTo(sw);
-                }
-                sw.Close();
+                file = saveFileDialog1.FileName;
+                sw = new StreamWriter(file);
             }
-            else
+            foreach (Shape p in this.shapes)
             {
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    file = saveFileDialog1.FileName;
-                    StreamWriter sw = new StreamWriter(file);
-                    foreach (Shape p in this.shapes)
-                    {
-                        p.SaveTo(sw);
-                    }
-                    sw.Close();
-                }
+                p.SaveTo(sw);
             }
+            sw.Close();
         }
 
         private void MainScreen_MouseLeave(object sender, EventArgs e)
